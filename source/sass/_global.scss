@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+$font-weight: (
+    'thin':100px,
+    'extralight':200px,
+    'regular': 400px,
+    'bold':500px 
+);
+
+@function fontWeight($weight){
+    @return map-get($font-weight , $weight )
+}
+
+$const-box-shadow: rgba(0,0,0,0.2);
+$blue: #5176E4;
+$orange: #FCB053;
+$yellow: #F5D04C;
+$font-muted-color: #6D6F88;

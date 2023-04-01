@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        navbar
+    </nav>
+    <section id="root" >
+        <div id="sidebar">
+            <ul>
+                <li>a</li>
+            </ul>
+        </div>
+        <div id="content">
+            
+        </div>
+    </section>
+</body>
+</html>
+<script>
+    const home = ()=>{
+        const btnHone  = document.getElementById('home')
+        return new Promise((resolve,reject)=>{
+           const xml = new XMLHttpRequest();
+
+           xml.onreadystatechange = ()=>{
+               if(xml.readyState === 1 && xml.status === 0 ){
+                    console.log("Please wailt")
+               }
+               if(xml.readyState === 4 && xml.status === 200){
+                   resolve( xml.responseText)
+               }
+           }
+
+           xml.open("POST","./superAdmin/home.php", true)
+           xml.send()
+
+        }).then((resolve)=>{
+            var content = document.getElementById('content');
+            content.innerHTML = resolve;
+            console.log(resolve)
+        })
+
+    }
+    //home()
+</script>
